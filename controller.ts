@@ -19,3 +19,17 @@ export const create = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const read = async (req: Request, res: Response) => {
+  try {
+    const data = taskModel.find()
+    res.status(201).json({
+      message: "Data has been read",
+      data: data,
+    });
+  } catch(error) {
+    res.status(404).json({
+      message: "Error",
+    });
+  }
+};
